@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Amway Premium</title>
+
+<style>
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  background: linear-gradient(135deg, #010a1a, #020f2e, #031a4a);
+  color: white;
+  touch-action: pan-y;
+}
+
+.slide {
+  display: none;
+  width: 100%;
+  height: 100vh;
+  padding: 32px 20px 90px;
+  box-sizing: border-box;
+  animation: fade 0.45s ease;
+}
+
+.slide.active {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wrap {
+  width: 100%;
+  max-width: 1100px;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 28px;
+  align-items: center;
+}
+
+.box {
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 26px;
+  padding: 28px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+  backdrop-filter: blur(10px);
+}
+
+.image-box img {
+  width: 100%;
+  height: 460px;
+  object-fit: cover;
+  border-radius: 18px;
+  display: block;
+}
+
+.hero {
+  max-width: 920px;
+  text-align: center;
+}
+
+h1 {
+  margin: 0 0 18px;
+  font-size: clamp(42px, 8vw, 74px);
+  line-height: 1;
+}
+
+h2 {
+  margin: 0 0 18px;
+  font-size: clamp(32px, 6vw, 52px);
+  line-height: 1.05;
+}
+
+p {
+  margin: 0 0 16px;
+  font-size: clamp(17px, 2.6vw, 22px);
+  line-height: 1.65;
+  opacity: 0.93;
+}
+
+.small {
+  font-size: 15px;
+  opacity: 0.72;
+}
+
+.controls {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 18px;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  z-index: 9999;
+  padding: 0 16px;
+}
+
+button {
+  border: none;
+  border-radius: 999px;
+  padding: 14px 20px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  min-width: 120px;
+}
+
+.btn-back {
+  background: rgba(255,255,255,0.14);
+  color: white;
+  border: 1px solid rgba(255,255,255,0.16);
+}
+
+.btn-next {
+  background: linear-gradient(90deg, #88ddff, #69a8ff, #74ffd8);
+  color: #041a35;
+}
+
+.counter {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  z-index: 9999;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 999px;
+  padding: 10px 14px;
+  font-size: 14px;
+}
+
+.note {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  z-index: 9999;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 999px;
+  padding: 10px 14px;
+  font-size: 14px;
+}
+
+a.button-link {
+  display: inline-block;
+  margin-top: 14px;
+  padding: 16px 26px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 700;
+  background: linear-gradient(90deg, #88ddff, #69a8ff, #74ffd8);
+  color: #041a35;
+}
+
+@keyframes fade {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 900px) {
+  .wrap {
+    grid-template-columns: 1fr;
+  }
+
+  .image-box img {
+    height: 260px;
+  }
+
+  .slide {
+    overflow-y: auto;
+    align-items: flex-start;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="counter" id="counter">1 / 8</div>
+
+<div class="slide active">
+  <div class="box hero">
+    <h1>AMWAY</h1>
+    <p>
+      Moderní podnikání postavené na kvalitních produktech, osobní zkušenosti
+      a dlouhodobém budování vztahů.
+    </p>
+    <p>
+      Tato prezentace ukazuje, co Amway je, jak funguje model výdělků
+      a proč mohou produkty jako Artistry působit velmi prémiově.
+    </p>
+  </div>
+</div>
+
+<div class="slide">
+  <div class="wrap">
+    <div class="box">
+      <h2>Co je Amway?</h2>
+      <p>
+        Amway je mezinárodní společnost zaměřená na přímý prodej a široké portfolio
+        produktů z oblasti kosmetiky, výživy, osobní péče a domácnosti.
+      </p>
+      <p>
+        Její model spojuje kvalitní produkty s možností doporučování dalším lidem
+        a budování dlouhodobých zákaznických vztahů.
+      </p>
+    </div>
+    <div class="box image-box">
+      <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1200&q=80" alt="">
+    </div>
+  </div>
+</div>
+
+<div class="slide">
+  <div class="wrap">
+    <div class="box">
+      <h2>Jak celý model funguje</h2>
+      <p>
+        Člověk se nejprve seznámí s produkty, začne je používat a na základě vlastní
+        zkušenosti je může doporučovat dalším zákazníkům.
+      </p>
+      <p>
+        Právě osobní zkušenost dává prezentaci větší důvěryhodnost než obyčejná reklama.
+      </p>
+    </div>
+    <div class="box image-box">
+      <img src="https://images.unsplash.com/photo-1556745757-8d76bdb6984b?auto=format&fit=crop&w=1200&q=80" alt="">
+    </div>
+  </div>
+</div>
+
+<div class="slide">
+  <div class="wrap">
+    <div class="box">
+      <h2>Jak fungují výdělky</h2>
+      <p>
+        Výdělky nejsou pevný plat. Vznikají podle aktivity, práce s produkty,
+        zákazníky a dlouhodobého budování.
+      </p>
+      <p>
+        Příjem může vznikat z osobního prodeje i z bonusů podle obratu a pravidel systému.
+      </p>
+      <p class="small">
+        Důležité je to prezentovat jako příležitost založenou na výkonu a konzistenci.
+      </p>
+    </div>
+    <div class="box image-box">
+      <img src="https://images.unsplash.com/photo-1565514020179-026b92b4a2e6?auto=format&fit=crop&w=1200&q=80" alt="">
+    </div>
+  </div>
+</div>
+
+<div class="slide">
+  <div class="wrap">
+    <div class="box">
+      <h2>Představení produktů</h2>
+      <p>
+        Silnou stránkou Amway je široké portfolio produktů pro každodenní život:
+        kosmetika, doplňky stravy, osobní péče i domácnost.
+      </p>
+      <p>
+        To pomáhá budovat delší vztah se zákazníkem, ne jen jednorázový nákup.
+      </p>
+    </div>
+    <div class="box image-box">
+      <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=1200&q=80" alt="">
+    </div>
+  </div>
+</div>
+
+<div class="slide">
+  <div class="wrap">
+    <div class="box">
+      <h2>Artistry</h2>
+      <p>
+        Artistry je prémiová kosmetická řada, která působí elegantně,
+        reprezentativně a luxusně už na první pohled.
+      </p>
+      <p>
+        Důležitý není jen produkt samotný, ale i celkový dojem značky,
+        balení a způsob prezentace.
+      </p>
+    </div>
+    <div class="box image-box">
+      <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=1200&q=80" alt="">
+    </div>
+  </div>
+</div>
+
+<div class="slide">
+  <div class="wrap">
+    <div class="box">
+      <h2>Srovnání s dražšími značkami</h2>
+      <p>
+        U Artistry není cílem jen říct, že stojí méně. Silnější je ukázat,
+        že dokáže působit prémiově a reprezentativně vedle výrazně dražších značek.
+      </p>
+      <p>
+        Zákazník často nekupuje jen složení, ale i celkový pocit kvality,
+        image a hodnoty.
+      </p>
+    </div>
+    <div class="box image-box">
+      <img src="https://images.unsplash.com/photo-1585386959984-a4155224a1ad?auto=format&fit=crop&w=1200&q=80" alt="">
+    </div>
+  </div>
+</div>
+
+<div class="slide">
+  <div class="wrap">
+    <div class="box">
+      <h2>Proč se do toho zapojit</h2>
+      <p>
+        Spojení kvalitních produktů, budování vztahů a možnosti rozvíjet vlastní směr
+        může být pro mnoho lidí velmi zajímavé.
+      </p>
+      <p>
+        Nejde jen o produkt, ale i o komunikaci, osobní značku a dlouhodobý potenciál.
+      </p>
+    </div>
+    <div class="box image-box">
+      <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1200&q=80" alt="">
+    </div>
+  </div>
+</div>
+
+<div class="slide">
+  <div class="box hero">
+    <h1>Kontakt</h1>
+    <p>
+      Chceš vědět víc o produktech nebo o možnostech spolupráce?
+      Napiš mi na Instagram.
+    </p>
+    <a class="button-link" href="https://instagram.com/TVUJ_PROFIL" target="_blank" rel="noopener noreferrer">
+      Otevřít Instagram
+    </a>
+  </div>
+</div>
+
+<div class="controls">
+  <button class="btn-back" id="prevBtn">← Zpět</button>
+  <button class="btn-next" id="nextBtn">Další →</button>
+</div>
+
+<script>
+let slides = document.querySelectorAll('.slide');
+let current = 0;
+
+function showSlide(i) {
+  slides.forEach(s => s.style.display = 'none');
+  slides[i].style.display = 'flex';
+}
+
+function nextSlide() {
+  current++;
+  if (current >= slides.length) current = 0;
+  showSlide(current);
+}
+
+function prevSlide() {
+  current--;
+  if (current < 0) current = slides.length - 1;
+  showSlide(current);
+}
+
+// tlačítka
+document.getElementById('nextBtn').onclick = function(e) {
+  e.stopPropagation();
+  nextSlide();
+};
+
+document.getElementById('prevBtn').onclick = function(e) {
+  e.stopPropagation();
+  prevSlide();
+};
+
+// klik kdekoliv mimo tlačítka a odkazy
+document.body.addEventListener('click', function(e) {
+  if (e.target.closest('button')) return;
+  if (e.target.closest('a')) return;
+  nextSlide();
+});
+
+// mobil touch kdekoliv mimo tlačítka a odkazy
+document.body.addEventListener('touchend', function(e) {
+  if (e.target.closest('button')) return;
+  if (e.target.closest('a')) return;
+  nextSlide();
+}, { passive: true });
+
+// start
+showSlide(current);
+</script>
+
+</body>
+</html>
